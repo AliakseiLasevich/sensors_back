@@ -1,6 +1,6 @@
 package com.sensors.monitor.dao;
 
-import com.sensors.monitor.model.entity.user.User;
+import com.sensors.monitor.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

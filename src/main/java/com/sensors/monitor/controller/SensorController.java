@@ -13,8 +13,14 @@ public class SensorController {
 
     @GetMapping("/test")
     @PreAuthorize("hasRole('ADMIN')")
-    public String authenticate() {
+    public String testAdmin() {
         return "hello admin";
+    }
+
+    @GetMapping("/test-user")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public String authenticate() {
+        return "hello user";
     }
 
 }

@@ -1,4 +1,4 @@
-package com.sensors.monitor.model.entity.user;
+package com.sensors.monitor.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

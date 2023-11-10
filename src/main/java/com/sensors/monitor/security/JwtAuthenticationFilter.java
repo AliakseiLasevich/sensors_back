@@ -1,4 +1,4 @@
-package com.sensors.monitor.config;
+package com.sensors.monitor.security;
 
 
 import com.sensors.monitor.dao.TokenRepository;

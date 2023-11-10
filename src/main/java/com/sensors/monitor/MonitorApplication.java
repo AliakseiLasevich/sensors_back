@@ -1,7 +1,6 @@
 package com.sensors.monitor;
 
 import com.sensors.monitor.model.dto.request.RegisterRequest;
-import com.sensors.monitor.model.entity.user.Role;
 import com.sensors.monitor.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -36,5 +35,19 @@ public class MonitorApplication {
 //            System.out.println("Admin token: " + authenticationService.register(admin).getAccessToken());
 //        };
 //    }
+
+        @Bean
+    public CommandLineRunner commandLineRunner(
+            AuthenticationService service
+    ) {
+        return args -> {
+            var admin = RegisterRequest.builder()
+                    .login("user")
+                    .password("password")
+                    .roles(List.of("USER"))
+                    .build();
+            System.out.println("Admin token: " + authenticationService.register(admin).getAccessToken().getToken().toString());
+        };
+    }
 
 }

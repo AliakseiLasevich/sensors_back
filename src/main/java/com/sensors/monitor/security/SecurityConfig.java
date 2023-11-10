@@ -1,4 +1,4 @@
-package com.sensors.monitor.config;
+package com.sensors.monitor.security;
 
 import com.sensors.monitor.dao.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +27,6 @@ public class SecurityConfig {
 
     private final UserRepository repository;
     private final LogoutHandler logoutHandler;
-
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

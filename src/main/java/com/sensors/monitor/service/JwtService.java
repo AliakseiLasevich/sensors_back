@@ -1,6 +1,6 @@
 package com.sensors.monitor.service;
 
-import com.sensors.monitor.model.dto.TokenDto;
+import com.sensors.monitor.model.dto.response.TokenResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -36,24 +36,24 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
-    public TokenDto generateToken(UserDetails userDetails) {
+    public TokenResponse generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(), userDetails);
     }
 
-    public TokenDto generateToken(
+    public TokenResponse generateToken(
             Map<String, Object> extraClaims,
             UserDetails userDetails
     ) {
         return buildToken(extraClaims, userDetails, jwtExpiration);
     }
 
-    public TokenDto generateRefreshToken(
+    public TokenResponse generateRefreshToken(
             UserDetails userDetails
     ) {
         return buildToken(new HashMap<>(), userDetails, refreshExpiration);
     }
 
-    private TokenDto buildToken(
+    private TokenResponse buildToken(
             Map<String, Object> extraClaims,
             UserDetails userDetails,
             long expiration
@@ -67,7 +67,7 @@ public class JwtService {
                 .setExpiration(new Date(TimeUnit.SECONDS.toMillis(expiresIn)))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
-        return TokenDto.builder()
+        return TokenResponse.builder()
                 .token(token)
                 .expiresIn(expiresIn)
                 .build();

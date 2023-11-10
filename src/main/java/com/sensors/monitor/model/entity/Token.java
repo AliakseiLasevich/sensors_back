@@ -1,7 +1,6 @@
 package com.sensors.monitor.model.entity;
 
 
-import com.sensors.monitor.model.entity.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,8 +32,10 @@ public class Token {
     @Column(name = "token", unique = true)
     private String token;
 
+    @Column(name = "revoked")
     private boolean revoked;
 
+    @Column(name = "expired")
     private boolean expired;
 
     @ManyToOne(fetch = FetchType.LAZY)

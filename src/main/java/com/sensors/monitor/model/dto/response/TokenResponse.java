@@ -1,4 +1,4 @@
-package com.sensors.monitor.model.dto;
+package com.sensors.monitor.model.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class TokenDto {
+public class TokenResponse {
 
     @JsonProperty("token")
     private String token;
