@@ -1,4 +1,4 @@
-package com.sensors.monitor.model.dto.response;
+package com.sensors.monitor.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;

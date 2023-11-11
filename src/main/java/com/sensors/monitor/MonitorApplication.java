@@ -1,6 +1,6 @@
 package com.sensors.monitor;
 
-import com.sensors.monitor.model.dto.request.RegisterRequest;
+import com.sensors.monitor.dto.request.RegisterRequest;
 import com.sensors.monitor.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;

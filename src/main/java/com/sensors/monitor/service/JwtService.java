@@ -1,6 +1,6 @@
 package com.sensors.monitor.service;
 
-import com.sensors.monitor.model.dto.response.TokenResponse;
+import com.sensors.monitor.dto.response.TokenResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

@@ -1,0 +1,5 @@
+id,name,model,type,range_from,range_to,unit,location,description
+1,Sensor 1,PC33-56,Pressure,0,16,bar,Room1,"Lorem ipsum dolor sit amet consectetur adipiscing elit."
+2,Sensor 2,EH-567,Voltage,-25,25,voltage,Room1,"Lorem ipsum dolor sit amet."
+3,Sensor 3,TER-21,Temperature,-70,50,°С,Room2,"Lorem ipsum dolor sit amet."
+4,Sensor 4,H94,Humidity,0,100,%,Room3,"Some description"

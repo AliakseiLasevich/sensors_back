@@ -1,16 +1,19 @@
-package com.sensors.monitor.model.dto.request;
+package com.sensors.monitor.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class RegisterRequest {
 
     private String login;
     private String password;
+    private List<Integer> roleIds;
 }

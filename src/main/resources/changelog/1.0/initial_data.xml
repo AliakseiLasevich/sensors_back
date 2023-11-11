@@ -10,4 +10,10 @@
                   separator=","
                   tableName="roles"/>
     </changeSet>
+
+    <changeSet id="data_2_sensors" author="Aliaksei Lasevich">
+        <loadData file="changelog/1.0/data/sensors.csv"
+                  separator=","
+                  tableName="sensors"/>
+    </changeSet>
 </databaseChangeLog>

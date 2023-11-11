@@ -1,7 +1,7 @@
 package com.sensors.monitor.controller;
 
-import com.sensors.monitor.model.dto.request.AuthenticationRequest;
-import com.sensors.monitor.model.dto.response.AuthenticationResponse;
+import com.sensors.monitor.dto.request.AuthenticationRequest;
+import com.sensors.monitor.dto.response.AuthenticationResponse;
 import com.sensors.monitor.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
