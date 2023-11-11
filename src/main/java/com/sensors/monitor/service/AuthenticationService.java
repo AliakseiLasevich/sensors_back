@@ -6,8 +6,8 @@ import com.sensors.monitor.dao.UserRepository;
 import com.sensors.monitor.model.dto.request.AuthenticationRequest;
 import com.sensors.monitor.model.dto.request.RegisterRequest;
 import com.sensors.monitor.model.dto.response.AuthenticationResponse;
-import com.sensors.monitor.model.entity.Token;
 import com.sensors.monitor.model.entity.Role;
+import com.sensors.monitor.model.entity.Token;
 import com.sensors.monitor.model.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -70,27 +69,16 @@ public class AuthenticationService {
 
     @Transactional
     public AuthenticationResponse register(RegisterRequest request) {
-        List<Role> userRoles = request.getRoles().stream()
-                .map(role -> Role.builder()
-                        .role(role)
-                        .build())
-                .collect(Collectors.toList());
-
-        List<Role> savedRoles = roleRepository.saveAll(userRoles);
-
+        List<Role> roles = roleRepository.findAllById(request.getRoleIds());
 
         var user = User.builder()
                 .login(request.getLogin())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .roles(savedRoles)
+                .roles(roles)
                 .enabled(true)
                 .build();
 
         var savedUser = userRepository.save(user);
-
-
-
-
 
         var jwtToken = jwtService.generateToken(user);
         saveUserToken(savedUser, jwtToken.getToken());

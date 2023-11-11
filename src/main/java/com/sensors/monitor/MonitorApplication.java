@@ -22,31 +22,25 @@ public class MonitorApplication {
 
 
     //       Use it for the very first run to generate admin user
-//    @Bean
-//    public CommandLineRunner commandLineRunner(
-//            AuthenticationService service
-//    ) {
-//        return args -> {
-//            var admin = RegisterRequest.builder()
-//                    .login("admin")
-//                    .password("password")
-//                    .roles(List.of("ADMIN"))
-//                    .build();
-//            System.out.println("Admin token: " + authenticationService.register(admin).getAccessToken());
-//        };
-//    }
-
-        @Bean
+    @Bean
     public CommandLineRunner commandLineRunner(
             AuthenticationService service
     ) {
         return args -> {
             var admin = RegisterRequest.builder()
-                    .login("user")
+                    .login("admin")
                     .password("password")
-                    .roles(List.of("USER"))
+                    .roleIds(List.of(1,2))
                     .build();
             System.out.println("Admin token: " + authenticationService.register(admin).getAccessToken().getToken().toString());
+
+
+            var user = RegisterRequest.builder()
+                    .login("user")
+                    .password("password")
+                    .roleIds(List.of(2))
+                    .build();
+            System.out.println("User token: " + authenticationService.register(user).getAccessToken().getToken().toString());
         };
     }
 

@@ -15,5 +15,5 @@ public class RegisterRequest {
 
     private String login;
     private String password;
-    private List<String> roles;
+    private List<Integer> roleIds;
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="Aliaksei Lasevich">
+        <createTable tableName="users">
+            <column name="id" type="INT(20)" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="login" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="Aliaksei Lasevich">
+        <createTable tableName="roles">
+            <column name="id" type="INT(20)" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="roles_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="Aliaksei Lasevich">
+        <createTable tableName="users_roles">
+            <column name="user_id" type="INT(20)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_roles_pkey"/>
+            </column>
+            <column name="role_id" type="INT(20)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_roles_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="4" author="Aliaksei Lasevich">
+        <createTable tableName="tokens">
+            <column name="id" type="INT(20)" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="tokens_pkey"/>
+            </column>
+            <column name="token" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revoked" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expired" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT(20)">
+                <constraints nullable="false" foreignKeyName="users_fk"
+                             referencedTableName="users"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>
