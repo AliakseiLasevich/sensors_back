@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -71,6 +72,8 @@ public class AuthenticationService {
     public AuthenticationResponse register(RegisterRequest request) {
         List<Role> roles = roleRepository.findAllById(request.getRoleIds());
 
+        validateExistingUser(request);
+
         var user = User.builder()
                 .login(request.getLogin())
                 .password(passwordEncoder.encode(request.getPassword()))
@@ -86,6 +89,14 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .build();
+    }
+
+    private void validateExistingUser(RegisterRequest request) {
+        Optional<User> user = userRepository.findByLogin(request.getLogin());
+        if (user.isPresent()) {
+            throw new RuntimeException("Current user exists: " + request.getLogin());
+        }
+
     }
 
 }

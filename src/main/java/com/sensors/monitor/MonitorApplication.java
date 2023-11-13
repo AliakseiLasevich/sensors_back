@@ -30,7 +30,7 @@ public class MonitorApplication {
             var admin = RegisterRequest.builder()
                     .login("admin")
                     .password("password")
-                    .roleIds(List.of(1,2))
+                    .roleIds(List.of(1))
                     .build();
             System.out.println("Admin token: " + authenticationService.register(admin).getAccessToken().getToken().toString());
 
