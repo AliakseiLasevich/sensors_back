@@ -11,10 +11,10 @@
 	</parent>
 
 	<groupId>com.sensors</groupId>
-	<artifactId>monitor</artifactId>
+	<artifactId>sensors</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>monitor</name>
-	<description>Sensors Monitor</description>
+	<name>sensors</name>
+	<description>Sensors</description>
 
 	<properties>
 		<java.version>11</java.version>
