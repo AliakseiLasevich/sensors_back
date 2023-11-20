@@ -9,6 +9,7 @@ import com.sensors.model.enums.SensorUnit;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,12 +24,14 @@ public class SensorService {
         return sensorRepository.findAll();
     }
 
+    @Transactional
     public Sensor createSensor(SensorRequest request) {
         validateSensor(request);
         Sensor sensor = buildSensorFromRequest(request).build();
         return sensorRepository.save(sensor);
     }
 
+    @Transactional
     public Sensor updateSensor(Integer id, SensorRequest request) {
         validateSensor(request);
         findSensorById(id);
@@ -58,6 +61,7 @@ public class SensorService {
         return buildSensorFromRequest(request).id(id);
     }
 
+    @Transactional
     public void deleteSensor(Integer id) {
         Optional<Sensor> sensor = findSensorById(id);
         sensorRepository.delete(sensor.get());
