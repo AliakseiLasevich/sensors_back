@@ -3,3 +3,8 @@ id,name,model,type,range_from,range_to,unit,location,description
 2,Sensor 2,EH-567,Voltage,-25,25,VOLTAGE,Room1,"Lorem ipsum dolor sit amet."
 3,Sensor 3,TER-21,Temperature,-70,50,CELSIUS,Room2,"Lorem ipsum dolor sit amet."
 4,Sensor 4,H94,Humidity,0,100,PERCENTAGE,Room3,"Some description"
+5,Sensor 5,XYZ-123,Pressure,0,16,BAR,Room2,"Lorem ipsum dolor sit amet consectetur adipiscing elit."
+6,Sensor 6,AB-789,Voltage,-30,30,VOLTAGE,Room3,"Lorem ipsum dolor sit amet."
+7,Sensor 7,CDR-45,Temperature,-60,70,CELSIUS,Room1,"Lorem ipsum dolor sit amet."
+8,Sensor 8,PQW-67,Humidity,10,90,PERCENTAGE,Room2,"Some description"
+9,Sensor 9,LKJ-89,Pressure,5,25,BAR,Room3,"Lorem ipsum dolor sit amet consectetur adipiscing elit."

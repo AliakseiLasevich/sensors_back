@@ -68,7 +68,7 @@
 
     <changeSet id="5" author="Aliaksei Lasevich">
         <createTable tableName="sensors">
-            <column name="id" type="INT(20)" autoIncrement="true">
+            <column name="id" type="INT(20)" autoIncrement="true" startWith="10">
                 <constraints primaryKey="true" primaryKeyName="sensors_pkey"/>
             </column>
             <column name="name" type="VARCHAR(30)">
@@ -90,10 +90,10 @@
                 <constraints nullable="false"/>
             </column>
             <column name="location" type="VARCHAR(40)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="description" type="VARCHAR(200)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
     </changeSet>
